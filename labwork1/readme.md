@@ -182,6 +182,7 @@ reboot
 ##### Set graphical mode (runlevel 5):
 `sudo systemctl set-default graphical.target`
 <br>
+<br>
 
 ## Conclusions
 ##### During the completion of lab. work №1, I studied hypervisors and their types, namely Type 1 and Type 2, and learned about their differences and areas of application. I learned how to install and run Linux on Windows using VirtualBox, and how to work with Linux in a virtual environment. Also I learned how to switch between text (CLI) and graphical (GUI) modes of the operating system, as well as how to change Linux boot levels. Using the Cisco course, I familiarized myself with the main types of modern operating systems — Windows, macOS and Linux, and studied their capabilities, functions and differences. I also learned about the main Linux distributions (Ubuntu, Red Hat, Debian, Android, etc.) and the concept of open source software (GNU GPL).
