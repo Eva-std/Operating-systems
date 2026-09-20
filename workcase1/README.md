@@ -1,23 +1,26 @@
 # Work case 1
 
-## Завдання 1
-##### Git -  це система контролю версій, яка відстежує зміни у файлах і дозволяє командам спільно працювати над проєктами. З його допомогою можна зробити відкат файйлу до будь-якої з версій; працювати різним членам команди одночасно над одним і тим же файлом без конфліктів.
-##### Команди, що найчастіше використовують:
-###### 1. git config -global user.name / user.email для налаштування профілю користувача
-###### 2. git init - створення локального репрозиторію у поточній папці
-###### 3. git add . + git commit -m "..." - зафіксувати зміни та зберегти їх як нову версію файлу
-###### 4. ls - переглянути вміст поточної папки
-###### 5. clear - очистити термінал вводу команд
-###### 6. pwd - показати шлях до каталогу
-###### 7. cd - змінити поточну директорію
-###### 8. mkdir - створити нову директорію
+## Task 1
+### Опишіть для чого використовують git, які основні дії та команди в ньому виконують.
+##### Git - is a version control system that tracks changes in files and allows teams to collaborate on projects. With it's help, you can roll back a file to any it's previous versions; different team members can work simulaneously on the same file without conflicts.
+##### Most popular commands:
+###### 1. git config --global user.name / user.email to set up user profile
+###### 2. git init - create a local repository in the current folder
+###### 3. git add . + git commit -m "..." - save changea and commit them as a new version of the file
+###### 4. ls - list the contents of the current folder
+###### 5. clear - clear the command input terminal
+###### 6. pwd - show the path to the current directory
+###### 7. cd - change the current directory to another one
+###### 8. mkdir - create a new directory
 
 
 ## Завдання 2
-##### Комміт - це збереження нової версії файлу з інформацією про його зміни (хто редагував, коли, що змінилось, посилання на минулу версію, знімок стану файлів на момент комміту).
+### Що таке "комміт", як він дозволяє відслідковувати зміни у файлах?
+##### Commit - is a saved snapshot og the project's files, containing information about the changes made (who edited, what was changed, when, a link to the previous commit).
 
 
 ##  Завдання 3
+### Зареєструйте власний git-аккаунт (gitlab, github або інша платформа). Створіть новий публічний репозиторій, який будете використовувати для додавання всіх виконаних робіт з дисципліни «Операційні системи»
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/workcase1/photos/task3.png?raw=true)
 
 
