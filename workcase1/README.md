@@ -18,4 +18,4 @@
 
 
 ##  Завдання 3
-![alt next](https://github.com/Eva-std/Operating-systems/workcase1/photos/task3.png)
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/workcase1/photos/task3.png?raw=true)
