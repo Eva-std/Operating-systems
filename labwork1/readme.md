@@ -44,7 +44,7 @@ Main components:
 
 ### Task 4
 #### Пройдіть тестування у курсі NDG Linux Essentials Chapter 02 Exam
-![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork1/photos/task4.png?raw=true)
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork1/task4.png?raw=true)
 <br>
 <br>
 
@@ -114,4 +114,72 @@ reboot
 <br>
 
 #### 2.5 Дайте коротку характеристику графічних інтерфейсів KDE та Fluxbox, що використовуються в різних дистрибутивах Linux 
-##### 
+##### KDE (K Desktop Evvironment) - is a full-featured, visually rich desktop environment based on the Qt framework. It is highly customizable and includes a complete suite of built-in applications such as a file manager, browser, and text editor. KDE requires relatively high system resources. It's interface is similar to Windows, making it easy for beginners.
+
+##### Fluxbox - is an extremely lightweight window manager based on Blackbox. It provides a minimal interface consisting of only a taskbar and a right-click menu, making it ideal for old hardware or embedded systems. Fluxbox has no built-in applications like KDE, for example and is configured through text configuration files, making it more suitable for experienced Linux users.
+<br>
+<br>
+
+## Сontrol questions
+### 1. Порівняйте гіпервізори типу 1 та типу 2, яка між ними відмінність та сфера їх застосування?
+##### The real distinction between a type 1 hypervisor and a type 2 hypervisor is that a type 2 makes use of a host operating system and its file system to create processes, store files, and so on. A type 1 hypervisor has no underlying support and must perform all these functions itself. 
+##### Scope of application:
+1. Type 1 hypervisor:
+   - Enterprise servers and data centers
+   - Cloud computing platforms
+   - Critical business infrastructure
+   - Environments where performance and stability are a priority
+2. Type 2 hypervisor:
+   - Personal computers and laptops
+   - Software development and testing
+   - Education and learning environments
+   - Running multiple OS simultaneously on a single personal machine
+<br>
+
+### 2. Розкрийте поняття «GNU GPL», яка його основна концепція?
+##### GNU GPL (General Public License) - is a free software license created by Richard Stallman in 1989 as part of the GNU project. The main concept - "copyleft": software can be freely used, source code can be freely viewed, software can be freely modified, modified software must be distributed under the same GPL license/
+<br>
+
+### 3. В чому суть програмного забезпечення з відкритим кодом?
+##### Open source takes a source-centric view of software. The open source philosophy is that you have a right to obtain the software source code and to modify it for your own use. Linus made the source programming code freely available, allowing others to join in and shape this fledgling operating system. People took the source, made changes, and shared them back with the rest of the group, greatly accelerating the pace of development, and ensuring mistakes from other operating systems were not repeated.
+<br>
+
+### 4. Що таке дистрибутив?
+##### A distribution - is a complete package that combines the Linux kernel, system tools, and a set of applications bundled together into a ready-to-use operating system. The distribution includes tools that take care of setting up the storage, installing the kernel, and installing the rest of the software. The full-featured distributions also include tools to manage the system and a package manager to help you add and remove software after the installation is complete.
+<br>
+
+### 5. Які задачі системного адміністрування можна реалізувати на базі ОС Linux?
+##### Linux-based system administration tasks:
+- User and group management
+- File system and storage management
+- Network configuration and monitoring
+- Security and firewall management
+- Backup and recovery
+- Server configuration (web, mail, DNS, FTP)
+- Process and resource monitoring
+<br>
+
+### 6. Як пов'язані між собою ОС Android та Linux?
+##### Android, sponsored by Google, is the world's most popular Linux distribution. It is fundamentally different from its counterparts. Android uses the Dalvik virtual machine with Linux, providing a robust platform for mobile devices such as phones and tablets.
+<br>
+
+### 7. Основні можливості та сфера використання Embedded Linux?
+##### Main features of Embedded Linux:
+- Support for a wide range of hardware architectures
+- Ability to run with minimal RAM (from 2 MB)
+- Real-time data processing
+- Remote management and updates
+- Support for various file systems
+- Network connectivity
+- Graphical interface support
+- High level of security and access control
+<br>
+
+### 8. Яким чином можна змінити типу завантаження Linux: в текстовому режимі (3 рівень) або графічному (рівень 5)? Чим відрізняються режими CLI та GUI?
+##### In a GUI, applications are presented in windows that can be moved and resized. There are menus and tools for navigation. CLI is a text-based interface that relies primarily on keyboard input. Everything the user wants to do is accomplished by typing commands rather than clicking on icons.
+##### Set text mode (runlevel 3):
+`sudo systemctl set-default multi-user.target`
+##### Set graphical mode (runlevel 5):
+`sudo systemctl set-default graphical.target`
+<br>
+
