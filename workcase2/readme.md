@@ -90,10 +90,12 @@
 ### 4.1 
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/workcase2/ubuntu_server.png?raw=true)
 <br>
+<br>
 
 ### 4.2
 ##### Оскільки при виконанні завдання 4.1 я намагалась запустити ВМ і все зависало, у цьому завданні я встановила оболонку GNOME у мінімальній конфігурації.
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/workcase2/gnome.png?raw=true)
+<br>
 <br>
 
 ### 4.3
@@ -112,3 +114,16 @@
 | Панель завдань | Вгорі (сучасна) | Внизу (класична) |
 | Меню програм | Сітка додатків | Класичне меню |
 | Рівень налаштування | Базовий рівень | Експертний рівень |
+<br>
+
+## Словник англ. термінів
+1. Virtual Machine - комп'ютерна система, яка працює всередині хост-комп'ютера як звичайна програма.
+2. Hypervisor - програмне забезпечення, яке керує та контролює віртуальні машини на фізичному хост-комп'ютері.
+3. NAT (Network Address Translation) - режим мережі, при якому ВМ використовує IP-адресу хоста для доступу до інтернету.
+4. USB Controller - компонент, який керує підключенням та передачею даних між USB пристроями та ВМ.
+5. Snapshot - збережена копія стану ВМ у певний момент часу, дозволяє повернутись до неї пізніше.
+6. Network Adapter - віртуальний мережевий пристрій, який дозволяє ВМ підключатись до мережі різними способами.
+<br>
+
+## Висновки
+##### During the completion of work-case №2, I created 2 virtual machines with Linux OS. The first one was created immediately with a graphical interface, and for the second machine I manually installed the graphical shells GNOME and XFCE through the ubuntu terminal. During the installation of the GNOME graphical shell, I encountered a problem - there was not enough disk space. I had to completely restart the machine and restore the boot after freeing up space, because there was also not enough space available to save the current state of the machine.
