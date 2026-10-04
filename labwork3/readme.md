@@ -19,7 +19,7 @@
 ### Завдання 3 - Пройдіть тестування у курсі NDG Linux Essentials за такими темами:
 - Chapter 05 Exam
 - Chapter 06 Exam
-![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/exams.png?raw=true)
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/photos/exams.png?raw=true)
 <br>
 <br>
 
