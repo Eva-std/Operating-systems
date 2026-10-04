@@ -5,13 +5,18 @@
 <h1 align="center"> Лабораторна робота №3</h1>
 
 ## Завдання попередньої підготовки
-### Завдання 1
-#### Прочитайте короткі теоретичні відомості до лабораторної роботи та зробіть невеликий словник базових англійських термінів з питань призначення команд та їх параметрів.
-- 
+### Завдання 1 - Прочитайте короткі теоретичні відомості до лабораторної роботи та зробіть невеликий словник базових англійських термінів з питань призначення команд та їх параметрів.
+- Shell - the command line interpreter that translates commands entered by a user into actions to be performed by the operating system.
+- CLI - is a simple text input system for entering anything from single-word commands to complicated scripts that that provides a direct way of accessing and controlling the computer.
+- Command - a software program that when executed on the CLI, performs an action on the computer.
+- Option - used to modify the core behavior of a command.
+- Argument - used to provide additional information to a command, such as a filename or a username.
+- Variable - a feature that allows the user or the shell to store data.
+- Prompt - the text displayed at the beginning of the command line that contains information about the user, system name, and current directory.
+<br>
+<br>
 
-
-### Завдання 3
-#### Пройдіть тестування у курсі 	NDG Linux Essentials за такими темами:
+### Завдання 3 - Пройдіть тестування у курсі NDG Linux Essentials за такими темами:
 - Chapter 05 Exam
 - Chapter 06 Exam
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/exams.png?raw=true)
@@ -99,6 +104,68 @@ sysadmin@localhost:~$ echo $HISTSIZE
 - `command --help` - швидка допомога по команді
 <br>
 <br>
+
+## Хід роботи
+### Завдання 1 - Опрацюйте всі приклади команд, що представлені у лабораторній роботі курсу NDG Linux Essentials - Lab 5: Command Line Skills та Lab 6: Getting Help. Створіть таблицю для опису цих команд 
+| Назва команди | Її призначення та функціональність |
+|:-----------|:-----------|
+| ls | Виводить інформації про каталоги та файли. За замовчуванням без аргументів відображає інформацію для поточного каталогу|  
+| ls -l | Використання параметру -l в команді ls дозволяє відобразити більш розширену інформацію про файли, розташовані в поточному робочому каталозі |  
+| ls -l /tmp | Використання аргументу /tmp в поєднанні з параметром -l в команді ls дозволяє відобразити детальну інформацію про файли в тимчасовому каталозі |  
+| whoami | Виведення ніку поточного користувача |  
+| uname | Відображає інформацію про поточну систему |  
+| pwd | Виводить інформацію про поточну директорію, шлях до неї |  
+| history | Виводить історію всіх раніше введених команд |  
+| echo | Виводить у термінал вказане повідомлення |  
+| date | Показує поточний час та дату |  
+| man | Виводить інформацію про команду, а саме описує її, показує її синтаксис |  
+| apropos | Виводить список зведених описів сторінок за ключовим словом |  
+| whatis | Використовується коли у декількох команд одна назва. Виводить список усії man pages з вказаною назвою |  
+| which | Показує повний шлях до певної команди |  
+| --help | Виводить довідку про певну команду, її аргументи та параметри |  
+| cd | Змінює поточну директорію |  
+<br>
+<br>
+
+### Завдання 2 - Робота в в терміналі (закріплення практичних навичок) обов'язково представити свої скріншоти:
+#### 2.1 - Робота зі змінними (Variables) та псевдонімами (Aliases) в терміналі:
+##### 2.1.1 Створіть змінні, що будуть містити Ваші імена та прізвища $var_name1, $var_name2, $var_name3
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/photos/211.png?raw=true)
+<br>
+
+##### 2.1.2 - За допомогою команди echo виведіть імена студентів вашої команди
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/photos/212.png?raw=true)
+<br>
+
+##### 2.1.3 - Створіть псевдоніми mycal1, mycal2, mycal3 для команди cal для автоматичного виведення календарю вашого року народження
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/photos/213.png?raw=true)
+<br>
+
+#### 2.2 - Створіть функцію students_report, що порядково буде виводити спочатку імена студентів Вашої команди, а потім роки їх народження 
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/photos/22.png?raw=true)
+<br>
+
+#### 2.3 - Робота з лапками (Quoting) в терміналі. Виведіть в командному рядку наступні речення:
+##### 2.3.1 - “We create such variables as $var_name1, $var_name2, $var_name3, which stored our names Name1, Name2, Name3” (у реченні спочатку виводимо назви змінних, а потім їх вміст)
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/photos/231.png?raw=true)
+<br>
+
+##### 2.3.2 - “We create such Aliases as mycal1, mycal2, mycal3, which can show our calendars: Calendar1, Calendar2, Calendar3”  (у реченні спочатку виводимо назву команди-псевдонімів, потім вивід цих команд).
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/photos/232.png?raw=true)
+<br>
+
+#### 2.4 - Робота з інструкціями керування (Control Statements) в терміналі. Чи можна завдання 2.1 та 2.2 ходу роботи виконати через інструкції керування без написання окремої функції, як це буде виглядати?
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/photos/24.png?raw=true)
+<br>
+
+#### 2.5 -  Робота з командами довідки (Man Pages) в терміналі. На прикладі команди uname продемонструйте як отримати довідку. На основі отриманої додаткової інформації наведіть 5 різних варіантів виводу результату інформації по даній команді з використанням 5 різних параметрів (Options)
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/photos/25.png?raw=true)
+<br>
+<br>
+
+
+
+
 
 
 
