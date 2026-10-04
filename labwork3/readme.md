@@ -132,41 +132,85 @@ sysadmin@localhost:~$ echo $HISTSIZE
 ##### 2.1.1 Створіть змінні, що будуть містити Ваші імена та прізвища $var_name1, $var_name2, $var_name3
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/photos/211.png?raw=true)
 <br>
+<br>
 
 ##### 2.1.2 - За допомогою команди echo виведіть імена студентів вашої команди
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/photos/212.png?raw=true)
+<br>
 <br>
 
 ##### 2.1.3 - Створіть псевдоніми mycal1, mycal2, mycal3 для команди cal для автоматичного виведення календарю вашого року народження
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/photos/213.png?raw=true)
 <br>
+<br>
 
 #### 2.2 - Створіть функцію students_report, що порядково буде виводити спочатку імена студентів Вашої команди, а потім роки їх народження 
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/photos/22.png?raw=true)
+<br>
 <br>
 
 #### 2.3 - Робота з лапками (Quoting) в терміналі. Виведіть в командному рядку наступні речення:
 ##### 2.3.1 - “We create such variables as $var_name1, $var_name2, $var_name3, which stored our names Name1, Name2, Name3” (у реченні спочатку виводимо назви змінних, а потім їх вміст)
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/photos/231.png?raw=true)
 <br>
+<br>
 
 ##### 2.3.2 - “We create such Aliases as mycal1, mycal2, mycal3, which can show our calendars: Calendar1, Calendar2, Calendar3”  (у реченні спочатку виводимо назву команди-псевдонімів, потім вивід цих команд).
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/photos/232.png?raw=true)
 <br>
+<br>
 
 #### 2.4 - Робота з інструкціями керування (Control Statements) в терміналі. Чи можна завдання 2.1 та 2.2 ходу роботи виконати через інструкції керування без написання окремої функції, як це буде виглядати?
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/photos/24.png?raw=true)
+<br>
 <br>
 
 #### 2.5 -  Робота з командами довідки (Man Pages) в терміналі. На прикладі команди uname продемонструйте як отримати довідку. На основі отриманої додаткової інформації наведіть 5 різних варіантів виводу результату інформації по даній команді з використанням 5 різних параметрів (Options)
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork3/photos/25.png?raw=true)
 <br>
 <br>
+<br>
 
+## Контрольні запитання
+###### запитання 2 я вирішила не розкривати
+### 1. Які типи команд існують в оболонці Bash?
+##### В оболонці Bash існує 4 типи команд: 
+- Internal commands
+- External commands
+- Aliases
+- Functions
+<br>
 
+### 3. Опишіть змінну $PS1. Як в терміналі переглянути її вміст?
+##### $PS1 - це змінна, яка визначає вигляд рядку запрошення. В терміналі її вміст можна переглянути за допомогою команди `echo $PS1`
+<br>
 
+### 4. Як можна змінити значення змінної $PS1? Що при цьому відбудеться в рядку запрошенні в bash (рядок запрошення перед початком кожної команди). Як змінити значення цієї змінної не на поточний сеанс, а за замовчуванням?
+##### Значення змінної можна змінити за допомогою команди `export PS1="username@hostname:directory$"`. В рядку запрошенні в bash в цей момент зміниться вміст, відповідно до нової змінної.
+<br>
 
+### 5. Для чого використовують лапки в оболонці Bash? 
+##### Лапки в оболонці Bash використовують для контролю інтерпретації спеціальних символів та для заміни змінних і команд.
+<br>
 
+### 6. Для чого використовують інструкції керування, які їх види Ви знаєте?
+##### Інструкції керування використовують для контролю послідовності та умови виконання команд. Види інструкцій: 
+| Символ | Коли виконується друга команда |
+|:-----------|:-----------|
+| ; | Завжди, незалежно від результату першої |  
+| && | Тільки якщо перша команда успіша |  
+| \|\| | Тільки якщо перша команда провалилась |  
+<br>
 
+### 7. В чому різниця якщо в кінці рядку запрошення bash стоїть символ $ чи #?
+##### Якщо у кінці рядку запрошення Bash стоїть $, то це означає, що у систему увійшли під звичайним користувачем, у якого обмежені права. # же означає, що користувач - адміністратор та ммає повні права на систему та її команди.
+<br>
 
+### 8. Яке призначення команд whereis та locate? Яка між ними відмінність?
+##### Призначення команди whereis - знайти команду та документацію у стандартних директоріях. locate - шукає будь-який файл в системі та використовує базу даних. Основна відмінність полягає в тому, що locate шукає будь-які файли, а whereis шукає саме команди.
+<br>
+<br>
+
+## Висновки
+##### During the completion of Laboratory Work #3, I learned to work with the Linux terminal and gained knowledge about command options and arguments. While studying sections 05 and 06 on the Cisco platform, I learned about the significance of quotes and control instructions, as well as numerous nuances of working with different commands. In practice, I created an alias for a calendar and a variable with a name. When attempting to display the calendar for my year on the screen, I received an error message stating that the command was not found. I had to additionally install it using the command `sudo apt install ncal`. After that, everything worked properly and there were no further issues.
 
