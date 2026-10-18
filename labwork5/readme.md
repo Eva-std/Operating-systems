@@ -217,6 +217,11 @@
 <br>
 
 #### 5. У якому з наведених нижче прикладів відбувається переміщення файлу? його перейменування? одночасно обидві дії?
-##### `mv /work/tech/comp.png. /Desktop` - переміщення
-##### `mv /work/tech/comp.png. /work/tech/my_car.png` - перейменування
-##### `mv /work/tech/comp.png. /Desktop/computer.png` - одночасно переміщення й перейменування
+- `mv /work/tech/comp.png. /Desktop` - переміщення
+- `mv /work/tech/comp.png. /work/tech/my_car.png` - перейменування
+- `mv /work/tech/comp.png. /Desktop/computer.png` - одночасно переміщення й перейменування
+<br>
+<br>
+
+## Висновки
+##### While completing Laboratory Work No. 5, I learned how to create new directories and empty files and how to write information into them. I learned how to copy files and move them between different directories, as well as how to rename them. I also learned how to search for directories and files by specific parameters, such as the first or last letter of the name and the number of characters, using glob characters (*, ?, [ ], [! ]. I became familiar with the structure of the Linux filesystem and practiced navigating it with the cd and pwd commands, using both absolute and relative paths. I learned to view directory contents with the ls command and its options (-l, -a, -R, -r) and to delete files and directories with rm and rmdir.
