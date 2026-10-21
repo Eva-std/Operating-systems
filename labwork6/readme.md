@@ -187,6 +187,8 @@ sudo apt install tar/gzip/bzip2/xz-utils/zip/unzip
 <br>
 
 #### 3.5 створити архівний файл tar, стиснений за допомогою bzip;
+> При виконанні даного завдання довелося довстановлювати утиліту bzip2
+
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork6/photos/35.png?raw=true)
 <br>
 
