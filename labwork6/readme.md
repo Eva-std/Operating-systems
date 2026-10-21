@@ -2,7 +2,7 @@
 > групи КСМ-43б   
 > Адаменко Є. В.  
 
-<h1 align="center"> Лабораторна робота №3</h1>
+<h1 align="center"> Лабораторна робота №6</h1>
 
 ## Завдання попередньої підготовки
 ### Завдання 1 - Прочитайте короткі теоретичні відомості до лабораторної роботи та зробіть невеликий словник базових англійських термінів з питань призначення команд та їх параметрів.
@@ -52,16 +52,19 @@
 - `-c` у стандартний вивід 
 - `-1`...`-9` рівень стиснення, зазвичай `-6`
 - `-d` розпакувати
-##### Як встановити
-
+##### Для встановлення цих інструментів в Ubuntu або Debian використовують наступні команди:
+```
+sudo apt update
+sudo apt install tar/gzip/bzip2/xz-utils/zip/unzip
+```
 <br>
 
 #### 5.2 Наведіть три приклади реалізації архівування та стискання даних різними командами.
-##### Приклад 1
-![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork6/photos/521.png?raw=true)
-##### Приклад 2
-![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork6/photos/522.png?raw=true)
-##### Приклад 3
+##### Приклад 1 - gzip у складі tar-архіву
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork6/photos/37.png?raw=true)
+##### Приклад 2 - bzip2 у складі tar-архіву
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork6/photos/35.png?raw=true)
+##### Приклад 3 - zip 
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork6/photos/523.png?raw=true)
 <br>
 
@@ -75,3 +78,132 @@
 | `tail` | виводить кінець файлу (за замовчуванням останні 10 рядків) | `-n число` (кількість рядків), `-f` (стежити за новими рядками) |
 ##### Ці команди входять до стандартного набору утиліт і зазвичай уже є в системі. Команда для встановлення: `sudo apt install coreutils less util-linux` (для Ubuntu/Debian)
 <br>
+
+#### 5.4 Поясніть принципи роботи командної оболонки з каналами потоками та фільтрами
+##### Потоки (streams), кожна команда в оболонці Bash працює з трьома стандартними потоками:
+| Потік | Номер | Призначення | За замовчуванням |
+|---|---|---|---|
+| stdin | 0 | стандартний ввід | клавіатура |
+| stdout | 1 | стандартний вивід | екран (термінал) |
+| stderr | 2 | стандартний потік помилок | екран (термінал) |
+##### Оболонка може змінити, звідки команда читає дані і куди виводить результат:
+- `cmd > file` - вивід у файл із перезаписом
+- `cmd >> file` - вивід у кінець файлу (додавання)
+- `cmd 2> file` - у файл виводяться лише повідомлення про помилки
+- `cmd &> file` - у файл виводиться і результат, і помилки
+- `cmd < file` - команда читає дані з файлу замість клавіатури
+- `cmd 2> /dev/null` - повідомлення про помилки відкидаються
+##### Канали (pipes), символ `|` з'єднує команди в конвеєр: стандартний вивід першої команди стає стандартним вводом другої (`cmd1 | cmd2`). Це дозволяє будувати складні дії з простих команд без створення проміжних файлів.
+##### Фільтри (filters) - це команда, яка читає дані зі стандартного вводу, обробляє їх і виводить результат у стандартний вивід.
+<br>
+
+#### 5.5 Яке призначення команди grep?
+##### Команда `grep` призначена для пошуку тексту. Вона перевіряє рядки з файлів або із стандартного вводу і виводить ті, що містять заданий шаблон.
+<br>
+<br>
+
+## Хід роботи
+### Завдання 1 - Запустіть віртуальну машину Ubuntu_PC 
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork5/photos/1.png?raw=true)
+<br> 
+<br>
+
+### Завдання 2 - Опрацюйте всі приклади команд, що представлені у лабораторних роботах курсу NDG Linux Essentials - Lab 9: Archiving and Compression та Lab 10: Working With Text. Створіть таблицю для опису цих команд.
+| Команда | Опис | 
+|---|---|
+| mkdir mybackups  | Створює нової директорії mybackups у домашньому каталозі користувача |
+| tar -cvf mybackups/udev.tar /etc/udev | створєю незжатий tar-архів теки `/etc/udev` і зберігає його в теці mybackups. Опції: `-c` - створити, `-v` - показувати процес, `-f` - вказати ім'я файлу. |
+| ls mybackups | виводить список файлів у теці mybackups |
+| tar –tvf mybackups/udev.tar | показує вміст tar-архіву без його розпакування (-t - вивести список вмісту) |
+| tar –zcvf mybackups/udev.tar.gz /etc/udev | створює tar-архів із компресією для теки /etc/udev |
+| ls –lh mybackups | виводить детальний список файлів у теці mybackups у режимі для читання людиною |
+| cd mybackups | змінює поточну теку на mybackups |
+| tar –xvf udev.tar.gz | розпаковує вміст архіву `udev.tar.gz` у поточну теку |
+| ls etc | виводить вміст etc |
+| ls etc/udev | виводить вміст etc/udev |
+| ls etc/udev/rules.d | виводить вміст etc/udev/rules.d |
+| tar -rvf udev.tar /etc/hosts | додає новий файл /etc/hosts до вже існуючого tar-архіву `-r` - додати |
+| cp /usr/share/dict/words . | копіює файл words із системної теки у поточну |
+| ls -l words | виводить інформацію про файл words |
+| gzip words | стискає файл words за допомогою gzip |
+| ls -l words.gz | виводить інформацію про стиснений файл words.gz |
+| gunzip words.gz | розпаковує файл words.gz назад в оригінальний файл words |
+| bzip2 words | стискає файл words за допомогою bzip2 |
+| ls -l words.bz2 | виводить інформацію про файл words.bz2 |
+| bunzip2 words.bz2 | розпаковує файл words.bz2 назад у words |
+| xz words | стискає файл words за допомогою xz |
+| ls -l words.xz | виводить інформацію про файл words.xz |
+| unxz words.xz | розпаковує файл words.xz назад у words |
+| zip words.zip words | створює zip-архів words.zip з копією файлу words |
+| ls -l words.zip | виводить інформацію про файл words.zip |
+| zip -r udev.zip /etc/udev | створює zip-архів /etc/udev (`-r` - рекурсивно) для директорії та її вмісту |
+| ls -l udev.zip | виводить інформацію про файл udev.zip |
+| unzip -l udev.zip | переглядає список вмісту zip-архіву `-l` - без його розпакування |
+| rm -r etc | рекурсивно видаляє теку etc |
+| unzip udev.zip | розпаковує udev.zip у поточну теку |
+| echo "Hello World" | виводить текстове повідомлення на екран |
+| echo "Hello World" > mymessage | записує текст у файл mymessage |
+| cat mymessage | виводить вміст файлу mymessage на екран |
+| echo "How are you?" >> mymessage | додає новий рядок у кінець існуючого файлу без його стирання |
+| find ~ -name `"*bash*"` | виконує рекурсивний пошук файлів за шаблоном `*bash*` |
+| find /etc -name hosts | шукає файл hosts у теці /etc |
+| find /etc -name hosts 2> err.txt | перенаправляє лише повідомлення про помилки |
+| cat err.txt | виводить вміст файлу помилок |
+| find /etc -name hosts > std.out 2> std.err | розділяє виведення |
+| cat std.err | виводить збережені помилки |
+| cat std.out | виводить успішні результати пошуку |
+| find /etc -name hosts > find.out 2>&1 | об'єднує стандартне виведення та помилки в один файл |
+| cat find.out | виводить спільний файл із результатами та помилками |
+| tr A-Z a-z > myfile | перетворює введений текст із верхнього регістру в нижній та записує його у myfile |
+| cat myfile | перевіряє вміст створеного файлу |
+| cat /etc/passwd | виводить весь файл конфігурації користувачів /etc/passwd |
+| /bin | пошук слова bin усередині програми перегляду less або more |
+| head /etc/passwd | виводить перші 10 рядків файлу |
+| tail /etc/passwd | виводить останні 10 рядків файлу |
+| head -2 /etc/passwd | виводить лише перші 2 рядки файлу |
+| head -n -20 /etc/passwd | виводить файл, виключаючи останні 20 рядків від кінця |
+| cd /etc | змінює поточну теку на /etc |
+| grep root passwd | шукає всі входження слова root у файлі |
+| grep '^root' passwd | шукає слово root лише на початку рядка |
+| grep 'sync' passwd | шукає шаблон sync будь-де в рядку |
+| grep 'sync$' passwd | шукає шаблон sync лише в кінці рядка |
+<br>
+
+### Завдання 3 -  Ознайомтесь з командою tar та за її допомогою виконати у терміналі наступні дії:
+#### 3.1 створити файл з розширенням .tar;
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork6/photos/31.png?raw=true)
+<br>
+
+#### 3.2 створити файл з розширенням .tar, що складається з декількох файлів і каталогів  одночасно;
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork6/photos/32.png?raw=true)
+<br>
+
+#### 3.3 перегляду вмісту файлу;
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork6/photos/33.png?raw=true)
+<br>
+
+#### 3.4 витягти вміст файлу tar;
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork6/photos/34.png?raw=true)
+<br>
+
+#### 3.5 створити архівний файл tar, стиснений за допомогою bzip;
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork6/photos/35.png?raw=true)
+<br>
+
+#### 3.6 витягти вміст файлу tar bzip;
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork6/photos/36.png?raw=true)
+<br>
+
+#### 3.7 створити архівний tar файл, стисненого за допомогою gzip;
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork6/photos/37.png?raw=true)
+<br>
+
+#### 3.8 витягти вміст файлу tar gzip.
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork6/photos/38.png?raw=true)
+<br>
+<br>
+
+### Завдання 4 - Як буде відбуватись перенаправлення потоків виведення в bash для наступних дій з командами (позначено як cmd) та файлами (позначено як file):
+
+
+
