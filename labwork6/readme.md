@@ -223,5 +223,14 @@ sudo apt install tar/gzip/bzip2/xz-utils/zip/unzip
 <br>
 <br>
 
-### Завдання 5 - Розгляньте наведені нижче приклади та поясніть, що виконують дані команди та який тип перенаправлення потоків вони використовують:
-
+### Завдання 5 - Розгляньте наведені нижче приклади та поясніть, що виконують дані команди та який тип перенаправлення потоків вони використовують 
+| Команда | Що виконує команда? | Який потік перенаправлення? |
+|---|---|---|
+| echo "It is a new story." > story |  |  |
+| date > date.txt |  |  |
+| cat file1 file2 file3 > bigfile |  |  |
+| ls -l >> directory |  |  |
+| sort < file1_unsorted > file2_sorted |  |  |
+| find -name '*.txt' > file.txt 2> /dev/null |  |  |
+| cat file1_unsorted | sort > file2_sorted |  |  |
+| cat myfile | grep student | wc -l |  |  |
