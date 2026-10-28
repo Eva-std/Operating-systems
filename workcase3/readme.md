@@ -68,12 +68,20 @@
 #### 3.1 Продемонструйте базові команди для налаштування мережевих параметрів ОС, поясніть, що вони виконують.
 `ip a` - показує мережеві інтерфейси та їхні IP-адреси 
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/workcase3/photos/311.png?raw=true)
+<br>
+
 `ip -br a` - те саме у короткому вигляді
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/workcase3/photos/312.png?raw=true)
+<br>
+
 `hostname -I` - виводить IP-адреси комп'ютера 
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/workcase3/photos/313.png?raw=true)
+<br>
+
 `ip route` - показує таблицю маршрутизації
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/workcase3/photos/314.png?raw=true)
+<br>
+
 `ping -c 4 8.8.8.8` - перевіряє зв'язок з Інтернетом (4 запити) 
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/workcase3/photos/315.png?raw=true)
 <br>
@@ -84,10 +92,72 @@
 <br>
 
 #### 3.3 Налаштуйте та продемонструйте обмін повідомленнями між двома ОС по локальній мережі. Які команди в терміналі при цьому необхідно ввести?
-
+> Для налаштування обміну повідоммленнями потрібно запускати дві ВМ, а у мене тоді дуже сильно починає підвисати система, тому я просто описала як це робити
+##### Для обміну повідомленнями між двома ВМ потрібно щоб вони мали різні IP-адреси, можна скористатись командоб `hostname -I`. Обмінюватись повідомленнями можна через netcat. Для цього на першій (основній) машили треба запустити прослуховування порту за допомогою команди `nc -l 5000`, а на другій машині (клоні) потрібно підключитись, вказавши IP-адресу першої за допомогою команди `nc (IP adress) 5000`. Після цього можна спокійно обмінюватись повідомленнями - набирати текст і відправляти кнопкою Enter. Для виходу з цього режиму треба скористатись комбінацією клавіш `Ctrl + C`
 <br>
 
 #### 3.4 Налаштуйте спільну мережеву папку для обох ОС. Спробуйте скопіювати файли з цієї директорії в домашній каталог користувача (віртуальна робоча ОС) та на робочій стіл (клон віртуальної робочої ОС).
+##### Папку створюємо на основній машині й підключаємо на клоні. На першій машині:
+```
+sudo apt update
+sudo apt install samba
+sudo mkdir -p /srv/shared
+sudo chown $USER:$USER /srv/shared
+sudo nano /etc/samba/smb.conf
+```
+##### Має відкритись редактор nano, після чого потріюно знайти розділ Shared і змінити наступні параметри:
+```
+path = /srv/shared
+browseable = yes
+read only = no
+valid users = ІМ'Я_КОРИСТУВАЧА
+```
+##### Далі треба зберегти зміни та вийти і вже в терміналі задати пароль для Samba-користувача та перезапусти службу:
+```
+sudo smbpasswd -a $USER
+sudo systemctl restart smbd
+```
+##### Створи в папці тестовий файл: `echo "test" > /srv/shared/test.txt`
+##### На клоні:
+```
+sudo apt install cifs-utils
+sudo mkdir -p /mnt/shared
+sudo mount -t cifs //IP_ПЕРШОЇ_МАШИНИ/Shared /mnt/shared -o username=ІМ'Я_КОРИСТУВАЧА, password=пароль
+```
+##### Для копіювання файлів:
+- на першій машині (домашній каталог користувача): `cp /srv/shared/test.txt ~/`
+- на клоні (робочий стіл): `cp /mnt/shared/test.txt ~/Desktop/`
+<br>
+<br>
 
+### Завдання 4 - Дайте відповіді на наступні питання:
+#### 4.1 Яким чином можна організувати обмін інформацією між вашою основною ОС (наприклад Windows) та віртуальними ОС? 
+##### Організувати обмін інформацією між Windows та віртуальною ОС можна за допомогою спільних папок VirtualBox (Shared Folders). Також можна обмінюватись через перетягування та спільний буфер обмміну. Для цього треба спочатку встановити Guest Additions, а у меню Devices -> Drag and Drop та Devices -> Shared Clipboard вибрати у обидва боки. Тоді файли можна просто перетягувати між вікнами Windows і ВМ. Можна обмінюватись через мережу SSH/SCP та спільні папки Samba
+<br>
+
+#### 4.2 Скопіюйте довільний аудіо-файл з вашої основної ОС на робочий стіл віртуальної ОС та її клона. 
+##### Спочатку треба встановити Guest Additions:
+1. У запущеній ВМ вибрати меню Devices -> Insert Guest Additions CD image…
+2. У гостьовій ОС: 
+```
+sudo apt install build-essential dkms linux-headers-$(uname -r)
+sudo mount /dev/cdrom /mnt
+sudo /mnt/VBoxLinuxAdditions.run
+sudo reboot
+```
+##### Далі потрібно налаштувати спільну папку:
+1. Створити на Windows папку, наприклад C:\Share
+2. У VirtualBox: Налаштування машини -> Shared Folders -> Add (іконка з плюсом)
+3. У полі Folder Path вибрати папку, створену у першому пункті, виставити галочки Auto-mount
+4. Додати користувача до групи `vboxsf` і перезавантажити систему командою `sudo adduser $USER vboxsf`
+5. Папка з'явиться в гостьовій ОС за шляхом `/media/sf_Share`
+##### Тепер скопіювати файл можна через цю папку. На Windows скопіювати файл в створену папку, а у ВМ викоати команду `cp /media/sf_Share/song.mp3 ~/Desktop/`, або просто перетягнути файл з робочого столу Windows до ВМ
+<br>
+
+#### 4.3 Як зробити зворотну дію, коли треба документ з робочого столу віртуальної ОС скопіювати до вашої основної робочої ОС?
+##### Зворотну дію можна виконати через спільну папку за допомогою команди `cp ~/Desktop/document.txt /media/sf_Share/`. Після чого файл з'явиться у папці C:\Share на Windows. А можна виконати через перетягування, тобто перетягнути файл з вікна ВМ до робочого столу Windows
 <br>
 <br>
+
+## Висновки 
+##### While completing workcase 3, I learned how to clone a virtual machine and export it to the OVA format for transfer to another virtualization environment. I studied the network modes of VirtualBox (NAT, Bridged, Host-only, Internal Network) and the differences between them. I also tried to set up message exchange with `nc`, creat a shared network folder with Samba and learned how to exchange files between the host Windows system and virtual machines using Shared Folders, drag and drop and SCP.
