@@ -156,8 +156,10 @@
 #### 3.4 опишіть можливості команди dig та наведіть приклади;
 `dig` перевіряє роботу DNS-сервера, який використовує хост (виконує запити до DNS-сервера й визначає, чи є в ньому потрібна інформація). Якщо сервер не має інформації, він питає інші DNS-сервери, а якщо їх відповідей немає, виводиться повідомлення про помилку
 - `dig example.com` - визначає IP-адресу хоста за його доменним ім'ям
+
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork8/photos/341.png?raw=true)
 - `dig -x 192.168.1.2` - зворотний запит: визначає ім'я хоста за IP-адресою
+
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork8/photos/342.png?raw=true)
 <br>
 <br>
@@ -165,14 +167,23 @@
 #### 3.5 опишіть можливості команди netstat та наведіть приклади.
 ##### `netstat` - команда, яка виводить загальну мережеву інформацію (відомості про мережеві з'єднання та таблицю маршрутизації, статистику мережевого трафіку, відкриті порти)
 `netstat -i` - статистика інтерфейсів 
+
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork8/photos/351.png?raw=true)
+
 `netstat -r` - таблиця маршрутизації
+
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork8/photos/352.png?raw=true)
+
 `netstat -s` - статистика мережі 
+
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork8/photos/353.png?raw=true)
+
 `netstat -p` - вивід PID та імені програми для сокетів
+
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork8/photos/354.png?raw=true)
+
 `netstat --help` - довідка з усіх параметрів 
+
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork8/photos/355.png?raw=true)
 <br>
 <br>
