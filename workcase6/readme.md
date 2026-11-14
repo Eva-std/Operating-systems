@@ -72,10 +72,14 @@ sudo useradd -m -g guests -s /usr/sbin/nologin guest3
 
 ### Завдання 4 - Продемонструвати приклади роботи кожної групи користувачів у своєму командному інтерпретаторі – наприклад збір відомостей про систему, визначення базової конфігурації, системної дати, поточних каталогів тощо.
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/workcase6/photos/tech.png?raw=true)
+<br>
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/workcase6/photos/dev.png?raw=true)
+<br>
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/workcase6/photos/fin.png?raw=true)
+<br>
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/workcase6/photos/boss.png?raw=true)
-![alt next](https://github.com/Eva-std/Operating-systems/blob/main/workcase6/photos/guests.png?raw=true)
+<br>
+![alt next](https://github.com/Eva-std/Operating-systems/blob/main/workcase6/photos/guest.png?raw=true)
 <br>
 <br>
 
