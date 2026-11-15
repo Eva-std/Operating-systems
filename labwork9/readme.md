@@ -19,6 +19,7 @@
 - Chapter 15 Exam
 - Chapter 16 Exam
 <br>
+
 ![alt next](https://github.com/Eva-std/Operating-systems/blob/main/labwork9/photos/exams.png?raw=true)
 <br>
 <br>
